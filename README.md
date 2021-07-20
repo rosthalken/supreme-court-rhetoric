@@ -1,0 +1,2 @@
+# supreme-court-rhetoric
+In progress materials for a project on Supreme Court opinions and rhetoric. This code operationalizes legal scholar Robert A. Ferguson's four generic types of court opinion rhetorical strategies, the monologic voice, interrogative mode, declarative tone, and rhetoric of inevitability (see ["The Judicial Opinion as Literary Genre"](https://digitalcommons.law.yale.edu/yjlh/vol2/iss1/15/)). For access to the labeled data (still in progress), see Data/Annotations; accompanying codebook is available by request. 
