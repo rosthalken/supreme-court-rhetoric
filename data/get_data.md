@@ -1,1 +1,0 @@
-Some of the files needed for running `distilbert.ipynb` are not available on github because of file size. These files can be found here: https://drive.google.com/drive/folders/1OSFXfapiIt8Yto5ycpNn37BSMMBsq9NS?usp=sharing

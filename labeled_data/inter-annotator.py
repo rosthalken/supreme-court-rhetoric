@@ -1,12 +1,12 @@
 import json
 import numpy as np
-import matplotlib.pyplot as plt
-from matplotlib.pyplot import axis
 import pandas as pd
+from collections import Counter
+from sklearn.metrics import cohen_kappa_score
 
 file_name1 = "Annotations/monologic_annotations.json"
-file_name2 = "Annotations/annotations_aditi.json"
-file_name3 = "Annotations/annotations_hana.json"
+file_name2 = "Annotations/annotations_1.json"
+file_name3 = "Annotations/annotations_2.json"
 
 # GOLD ANNOTATIONS
 gold_annotations = []
@@ -47,7 +47,7 @@ print(third_annotations_df.label_num3.value_counts())
 
 
 
-# Annotation reshapint
+# Annotation reshaping
 annotations_1 = gold_annotations_df[["label_num"]]
 annotations_1["annotator"] = 1
 annotations_1["sentence"] = annotations_1.index
@@ -77,31 +77,19 @@ simpledorff.calculate_krippendorffs_alpha_for_df(labels_df,experiment_col='sente
                                                  class_col='label')
 
 
+# Cohen's kappa
 
-
-
-
-# OR Cohen's kappa for each
-
-# MERGE
+# merge
 large_df = subset.merge(second_annotations_df, left_index=True, right_index=True)
 all_df = large_df.merge(third_annotations_df, left_index=True, right_index=True)
 double_check = all_df.sample(20)
 
-
-# Looks good!
 
 gold_answers = all_df["label_num"].tail(200)
 second_annotator = all_df["label_num2"].tail(200)
 third_annotator = all_df["label_num3"].tail(200)
 
 
-
-from collections import Counter
-from sklearn.metrics import cohen_kappa_score
-
 cohen_kappa_score(gold_answers, third_annotator)
-
 cohen_kappa_score(gold_answers, second_annotator)
-
 cohen_kappa_score(second_annotator, third_annotator)
